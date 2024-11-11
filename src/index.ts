@@ -14,6 +14,14 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.text());
 
+// Route for the root URL
+app.get("/", (req: Request, res: Response) => {
+            res.send(`
+                        Welcome to justify-api!
+                        The RESTful API built with TypeScript for text justification. 
+                        The API includes token-based authentication, rate-limiting, and error-handling mechanisms.`);
+});
+
 // authentication endpoint
 app.post("/api/token", express.json(), generateTokenController);
 
